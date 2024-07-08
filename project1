@@ -1,0 +1,52 @@
+questions = [
+    {
+        "question": "What is the capital of France?",
+        "options": ["A. Paris", "B. London", "C. Rome", "D. Berlin"],
+        "answer": "A"
+    },
+    {
+        "question": "What is 2 + 2?",
+        "options": ["A. 3", "B. 4", "C. 5", "D. 6"],
+        "answer": "B"
+    },
+    {
+        "question": "Who wrote 'To Kill a Mockingbird'?",
+        "options": ["A. Harper Lee", "B. J.K. Rowling", "C. Ernest Hemingway", "D. Mark Twain"],
+        "answer": "A"
+    },
+    {
+        "question": "What is the boiling point of water?",
+        "options": ["A. 90°C", "B. 100°C", "C. 110°C", "D. 120°C"],
+        "answer": "B"
+    },
+    {
+        "question": "What is the largest planet in our solar system?",
+        "options": ["A. Earth", "B. Mars", "C. Jupiter", "D. Saturn"],
+        "answer": "C"
+    }
+]
+
+def ask_question(question):
+    print(question["question"])
+    for option in question["options"]:
+        print(option)
+    answer = input("Enter your answer (A, B, C, or D): ").strip().upper()
+    return answer
+
+def check_answer(question, user_answer):
+    return question["answer"] == user_answer
+
+def quiz():
+    score = 0
+    for question in questions:
+        user_answer = ask_question(question)
+        if check_answer(question, user_answer):
+            print("Correct!")
+            score += 1
+        else:
+            print("Incorrect. The correct answer is:", question["answer"])
+        print()
+    print("Your final score is:", score)
+
+if __name__ == "__main__":
+    quiz()
